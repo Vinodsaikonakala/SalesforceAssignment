@@ -1,0 +1,36 @@
+<template>
+    <lightning-card title="Partner Deal Console">
+
+        <div class="slds-grid slds-gutters slds-m-around_small">
+
+            <div class="slds-col">
+                <lightning-combobox
+                    label="Partner Account"
+                    value={selectedPartner}
+                    options={partnerOptions}
+                    onchange={handlePartnerChange}>
+                </lightning-combobox>
+            </div>
+
+            <div class="slds-col">
+                <lightning-combobox
+                    label="Status"
+                    value={selectedStatus}
+                    options={statusOptions}
+                    onchange={handleStatusChange}>
+                </lightning-combobox>
+            </div>
+
+        </div>
+
+        <lightning-datatable
+            key-field="Id"
+            data={deals}
+            columns={columns}
+            draft-values={draftValues}
+            onsave={handleSave}
+            hide-checkbox-column>
+        </lightning-datatable>
+
+    </lightning-card>
+</template>

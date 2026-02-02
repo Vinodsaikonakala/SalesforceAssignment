@@ -1,0 +1,30 @@
+<template>
+    <lightning-card title="Account List">
+
+        <template if:true={accounts}>
+            <table class="slds-table slds-table_bordered slds-m-around_small">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Industry</th>
+                        <th>Phone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={accounts} for:item="acc">
+                        <tr key={acc.Id}>
+                            <td>{acc.Name}</td>
+                            <td>{acc.Industry}</td>
+                            <td>{acc.Phone}</td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </template>
+
+        <template if:false={accounts}>
+            <lightning-spinner alternative-text="Loading"></lightning-spinner>
+        </template>
+
+    </lightning-card>
+</template>

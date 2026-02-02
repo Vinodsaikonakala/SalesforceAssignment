@@ -1,0 +1,41 @@
+<template>
+    <lightning-card title="Create Contact and Case">
+
+        <div class="slds-p-around_medium">
+
+            <lightning-input label="First Name" onchange={handleFirstName}></lightning-input>
+            <lightning-input label="Last Name" onchange={handleLastName} required></lightning-input>
+            <lightning-input label="Email" onchange={handleEmail}></lightning-input>
+
+            <lightning-input label="Case Subject" onchange={handleSubject}></lightning-input>
+            <lightning-textarea label="Case Description" onchange={handleDescription}></lightning-textarea>
+
+            <br/>
+
+            <lightning-button 
+                label="Save" 
+                variant="brand"
+                onclick={handleSave}>
+            </lightning-button>
+
+            <template if:true={isCaseCreated}>
+                <lightning-button 
+                    label="Show Case"
+                    class="slds-m-left_small"
+                    onclick={showCase}>
+                </lightning-button>
+            </template>
+
+        </div>
+
+        <template if:true={showCaseDetails}>
+            <div class="slds-p-around_medium slds-box slds-theme_shade">
+                <p><b>Case Number:</b> {caseRecord.CaseNumber}</p>
+                <p><b>Subject:</b> {caseRecord.Subject}</p>
+                <p><b>Status:</b> {caseRecord.Status}</p>
+                <p><b>Description:</b> {caseRecord.Description}</p>
+            </div>
+        </template>
+
+    </lightning-card>
+</template>
